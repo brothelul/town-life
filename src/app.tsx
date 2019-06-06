@@ -1,5 +1,5 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import Index from './pages/index'
+import News from './pages/news/news'
 
 import 'taro-ui/dist/style/index.scss'
 import './app.scss'
@@ -21,13 +21,30 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/news/news',
+      'pages/my/my',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      color: '#333333',
+      selectedColor: '#1296db',
+      backgroundColor: '#ffffff',
+      list: [{
+        pagePath: 'pages/news/news',
+        text: '天全知事',
+        iconPath: 'icon/home_origin.png',
+        selectedIconPath: 'icon/home.png'
+      }, {
+        pagePath: 'pages/my/my',
+        text: '个人中心',
+        iconPath: 'icon/my_origin.png',
+        selectedIconPath: 'icon/my.png'
+      }]
     }
   }
 
@@ -43,7 +60,7 @@ class App extends Component {
   // 请勿修改此函数
   render () {
     return (
-      <Index />
+      <News />
     )
   }
 }
