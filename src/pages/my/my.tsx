@@ -7,6 +7,12 @@ export default class My extends Taro.Component {
     navigationBarTitleText: '个人中心'
   }
 
+  handleItemClick(){
+    Taro.navigateTo({
+      url: '/pages/newsDetail/newsDetail'
+    })
+  }
+
   render() {
     return(
       <View>
@@ -28,6 +34,7 @@ export default class My extends Taro.Component {
             title='我要投稿'
             arrow='right'
             thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
+            onClick={this.handleItemClick.bind(this)}
           />
 
           <AtListItem

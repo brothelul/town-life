@@ -23,6 +23,7 @@ class App extends Component {
     pages: [
       'pages/news/news',
       'pages/my/my',
+      'pages/newsDetail/newsDetail'
     ],
     window: {
       backgroundTextStyle: 'light',

@@ -70,7 +70,7 @@ export default class News extends Taro.Component {
           {
             content
           }
-          <RichText nodes={}/>
+          <RichText nodes={'<div><b>test124</b></div>'}/>
             <AtLoadMore status={this.state.status} loadingText={'加载中(⊙o⊙)…'} onClick={this.handleLoadMore.bind(this)}/>
         </AtTabsPane>
         <AtTabsPane current={this.state.current} index={1}>
