@@ -1,0 +1,74 @@
+.newsDetail {
+  margin: 0 24px;
+}
+
+.newsDetailTitle {
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.newsDetailAuthor {
+  display: flex;
+  flex-direction: row;
+  margin: 24px 0;
+}
+
+.newsDetailUsername {
+  font-size: 32px;
+  line-height: 48px;
+}
+
+
+.newsDetailGov {
+  font-size: 28px;
+  line-height: 42px;
+  color: #cccccc;
+}
+
+
+.newsDetailAuthorCenter {
+  padding-left: 24px;
+}
+
+
+.newsDetailCommentAdd {
+  position: fixed;
+  bottom: 0;
+  z-index: inherit;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-top: 1px solid #f0f0f0;
+  font-size: 28px;
+  line-height: 40px;
+}
+.newsDetailCommentAddDisplay {
+
+}
+
+.newsDetailCommentAddContent{
+  margin: 16px;
+  border: 1px solid #f0f0f0;
+  padding: 16px;
+  width:60%;
+  border-radius: 16px;
+}
+
+.newsDetailCommentAddContent Text {
+  margin-left: 16px;
+  color: #cccccc;
+}
+
+.newsDetailCommentAddShare {
+  margin: 16px;
+  padding: 16px;
+}
+
+.addComment {
+
+  //height: 80px;
+}
+
+.newsDetailCommentAddShareButton {
+  margin-top: 16px;
+}

@@ -1,0 +1,17 @@
+.card {
+  margin: 24px 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.cardNickname {
+  margin-left: 24px;
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.cardComment {
+  font-size: 32px;
+  line-height: 48px;
+  color: #cccccc;
+}
