@@ -1,0 +1,25 @@
+.comment {
+  display: flex;
+  flex-direction: row;
+  font-size: 28px;
+  line-height: 42px;
+  margin-bottom: 24px;
+}
+
+.commentAvatar {
+  margin-right: 16px;
+}
+
+.commentUserName {
+  color: #6190e8;
+}
+
+.commentContent {
+  padding: 16px 0;
+}
+
+.commentCreatedTime {
+  color: #cccccc;
+  font-size: 24px;
+  line-height: 36px;
+}
