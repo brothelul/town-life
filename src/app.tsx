@@ -23,7 +23,8 @@ class App extends Component {
     pages: [
       'pages/news/news',
       'pages/my/my',
-      'pages/newsDetail/newsDetail'
+      'pages/newsDetail/newsDetail',
+      'pages/community/community'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -40,6 +41,11 @@ class App extends Component {
         text: '天全知事',
         iconPath: 'icon/home_origin.png',
         selectedIconPath: 'icon/home.png'
+      }, {
+        pagePath: 'pages/community/community',
+        text: '西康广场',
+        iconPath: 'icon/community_origin.png',
+        selectedIconPath: 'icon/community.png'
       }, {
         pagePath: 'pages/my/my',
         text: '个人中心',
