@@ -2,6 +2,7 @@ import Taro, {Component, Config} from '@tarojs/taro'
 import {View, RichText, Text} from '@tarojs/components'
 import {AtAvatar, AtTextarea, AtIcon, AtBadge, AtFloatLayout, AtButton} from 'taro-ui'
 import CommentCell from '../../components/commentCell/commentCell'
+import ADCard from '../../components/adCard/adCard'
 
 import './newsDetail.scss'
 
@@ -24,9 +25,9 @@ export default class NewsDetail extends Component {
   componentDidShow(): void {
     console.log(this.$router.params)
     const params = this.$router.params
-    Taro.setNavigationBarTitle({
-      title: params.title
-    })
+    // Taro.setNavigationBarTitle({
+    //   title: params.title
+    // })
     this.setState({
       articleId: params.articleId,
       article: {
@@ -99,6 +100,10 @@ export default class NewsDetail extends Component {
             <RichText nodes={this.state.article.content}/>
           </View>
 
+          <View>
+            <ADCard/>
+          </View>
+
           <View className='newsDetailComment'>
             {commentsContent}
           </View>
@@ -117,7 +122,7 @@ export default class NewsDetail extends Component {
             <View><AtIcon value='share'/></View>
           </View>
         </View>
-        
+
         <AtFloatLayout title='发表评论' isOpened={this.state.openAddComment} onClose={this.handleCloseAddComment} className='addComment'>
           <View>
             <AtTextarea value={this.state.addCommentContent}

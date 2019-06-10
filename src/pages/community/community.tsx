@@ -10,10 +10,10 @@ export default class Community extends Component {
   }
 
   render(): any {
-    return(<View>
+    return(<View className="community">
       <Text>西康广场</Text>
       <AtButton circle className='addDynamic' type={"primary"}>
-        <AtIcon value='edit'/>
+        <AtIcon value='edit' size="20"/>
       </AtButton>
     </View>)
   }

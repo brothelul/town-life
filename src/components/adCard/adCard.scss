@@ -1,0 +1,43 @@
+.adCard {
+  border-top: 2px solid #f0f0f0;
+  border-bottom: 2px solid #f0f0f0;
+  font-size: 32px;
+  line-height: 48px;
+  margin: 24px 0;
+}
+
+.adCard:active {
+  background-color: #f7f7f7;
+}
+
+.adCardTitle {
+  padding: 8px 0;
+}
+
+.adCardImage {
+  width: 100%;
+  height: 300px;
+  padding: 8px 0;
+}
+
+.adCardComment {
+  font-size: 24px;
+  line-height: 36px;
+  color: #cccccc;
+  padding-bottom: 8px;
+}
+
+
+.adCardCommentTag {
+  margin-bottom: 8px;
+  //border: 1px solid #b2b2b2;
+  //background-color: #b2b2b2;
+  color: #666;
+  //border-radius: 20px;
+  //padding: 8px;
+}
+
+.adCardProvider {
+  padding-bottom: -4px;
+  margin-left: 24px;
+}

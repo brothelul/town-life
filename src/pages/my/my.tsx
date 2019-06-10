@@ -25,28 +25,33 @@ export default class My extends Taro.Component {
   render() {
     return(
       <View className="my">
-        <View>
+        <View className="myUserInfo">
           <AvatarCard userInfo={this.state.userInfo}/>
         </View>
-        <View className="myMenu">
-          <AtList>
+        <View className="myMenu-1">
+          <AtList className="myMenu-1t">
             <AtListItem
               title='我的投稿'
               arrow='right'
               thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
             />
             <AtListItem
+              title='广告投放'
+              arrow='right'
+              thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
+            />
+          </AtList>
+        </View>
+
+        <View className="myMenu-1">
+          <AtList className="myMenu-1t">
+            <AtListItem
               title='用户反馈'
               arrow='right'
               thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
             />
             <AtListItem
-            title='消息通知'
-            arrow='right'
-            thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
-          />
-            <AtListItem
-              title='广告投放'
+              title='消息通知'
               arrow='right'
               thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
             />
