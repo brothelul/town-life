@@ -46,7 +46,7 @@
 .newsDetailCommentAdd {
   position: fixed;
   bottom: 0;
-  z-index: inherit;
+  z-index: 2;
   display: flex;
   flex-direction: row;
   width: 100%;

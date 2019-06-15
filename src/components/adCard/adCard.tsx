@@ -1,6 +1,5 @@
 import Taro, {Component} from '@tarojs/taro'
 import {View, Text, Image} from '@tarojs/components'
-import {AtTag} from 'taro-ui'
 
 import './adCard.scss'
 
@@ -12,7 +11,7 @@ export default class ADCard extends Component {
       imageUrl: 'https://misc.aotu.io/jimczj/2018-08-27taro-ui.jpg',
       providerName: '天全论坛'
     },
-    handleADClick: this.handleADClick
+    onClick: this.handleADClick
   }
 
   handleADClick() {
@@ -22,7 +21,7 @@ export default class ADCard extends Component {
   }
 
   render() {
-    return (<View className="adCard" onClick={this.props.handleADClick}>
+    return (<View className="adCard" onClick={this.props.onClick}>
       <View className="adCardTitle">
         <Text>{this.props.adInfo.title}</Text>
       </View>

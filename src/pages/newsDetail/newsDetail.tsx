@@ -4,7 +4,7 @@ import {AtAvatar, AtTextarea, AtIcon, AtBadge, AtFloatLayout, AtButton} from 'ta
 import CommentCell from '../../components/commentCell/commentCell'
 import ADCard from '../../components/adCard/adCard'
 
-import styles from './newsDetail.scss'
+import './newsDetail.scss'
 
 export default class NewsDetail extends Component {
   config: Config = {
@@ -87,7 +87,7 @@ export default class NewsDetail extends Component {
           <View className="newsDetailTitle">
             <Text>{this.state.article.title}</Text>
           </View>
-          <View className={styles.newsDetailAuthor}>
+          <View className="newsDetailAuthor">
             <View>
               <AtAvatar image={this.state.article.userInfo.avatarUrl} circle size='small'/>
             </View>

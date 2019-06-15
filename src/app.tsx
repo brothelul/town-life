@@ -1,5 +1,5 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import News from './pages/news/news'
+import Official from './pages/official/official'
 
 import 'taro-ui/dist/style/index.scss'
 import './app.scss'
@@ -24,12 +24,13 @@ class App extends Component {
       'pages/news/news',
       'pages/my/my',
       'pages/newsDetail/newsDetail',
-      'pages/community/community'
+      'pages/community/community',
+      'pages/official/official'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
+      navigationBarTitleText: '天全论坛',
       navigationBarTextStyle: 'black'
     },
     tabBar: {
@@ -37,10 +38,15 @@ class App extends Component {
       selectedColor: '#1296db',
       backgroundColor: '#ffffff',
       list: [{
-        pagePath: 'pages/news/news',
-        text: '天全知事',
+        pagePath: 'pages/official/official',
+        text: '天全动态',
         iconPath: 'icon/home_origin.png',
         selectedIconPath: 'icon/home.png'
+      },{
+        pagePath: 'pages/news/news',
+        text: '天全知事',
+        iconPath: 'icon/news_origin.png',
+        selectedIconPath: 'icon/news.png'
       }, {
         pagePath: 'pages/community/community',
         text: '西康广场',
@@ -67,7 +73,7 @@ class App extends Component {
   // 请勿修改此函数
   render () {
     return (
-      <News />
+      <Official />
     )
   }
 }
