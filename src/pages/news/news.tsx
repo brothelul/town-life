@@ -4,6 +4,7 @@ import {AtTabs, AtTabsPane, AtList, AtListItem, AtLoadMore} from 'taro-ui'
 import NewsItem from '../../components/newsItem/newsItem'
 import Loading from '../../components/loading/loading'
 import {URLConfig} from '../../config/config'
+import './news.scss'
 
 export default class News extends Taro.Component {
 

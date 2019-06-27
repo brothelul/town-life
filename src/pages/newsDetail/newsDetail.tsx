@@ -3,6 +3,8 @@ import {View, RichText, Text} from '@tarojs/components'
 import {AtAvatar, AtTextarea, AtIcon, AtBadge, AtFloatLayout, AtButton} from 'taro-ui'
 import CommentCell from '../../components/commentCell/commentCell'
 import ADCard from '../../components/adCard/adCard'
+import {URLConfig} from '../../config/config'
+import {getLocalTime} from '../../utils/dateUtil'
 
 import './newsDetail.scss'
 
@@ -19,44 +21,36 @@ export default class NewsDetail extends Component {
     addCommentContent: '',
     openAddComment: false,
     addCommentFocus: false,
-    comments: []
+    comments: [{
+      userInfo: {
+        username: '李小强',
+        avatarUrl: 'https://jdc.jd.com/img/200'
+      },
+      content: '这个有问题吧？',
+      createdTime: '2019-1-5 14:30'
+    },
+      {
+        userInfo: {
+          username: '张小明',
+          avatarUrl: 'https://jdc.jd.com/img/200'
+        },
+        content: '这个不太好吧？',
+        createdTime: '2小时前'
+      }]
   }
 
   componentDidShow(): void {
-    console.log(this.$router.params)
-    const params = this.$router.params
-    // Taro.setNavigationBarTitle({
-    //   title: params.title
-    // })
-    this.setState({
-      articleId: params.articleId,
-      article: {
-        title: params.title,
-        userInfo: {
-          avatarUrl: 'https://jdc.jd.com/img/200',
-          nickname: '山东商报',
-          gov: '天全中学官方账号'
-        },
-        createdTime: '2小时前',
-        content: '<div style="margin: 0 auto"><div><img src="https://ss0.baidu.com/73x1bjeh1BF3odCf/it/u=1825563898,3554502737&fm=85&s=79843572110FE14D0E6498CF0300E0B2"></div><div><b style="text-align: center; margin-top: 8px;">厉害了</b></div></div>'
-      },
-      comments: [{
-        userInfo: {
-          username: '李小强',
-          avatarUrl: 'https://jdc.jd.com/img/200'
-        },
-        content: '这个有问题吧？',
-        createdTime: '2019-1-5 14:30'
-      },
-        {
-          userInfo: {
-            username: '张小明',
-            avatarUrl: 'https://jdc.jd.com/img/200'
-          },
-          content: '这个不太好吧？',
-          createdTime: '2小时前'
-        }]
-    })
+    const {articleId, title} = this.$router.params
+    this.getArticleContent(articleId)
+  }
+
+  getArticleContent(articleId) {
+    let that = this
+    Taro.request({
+      url: URLConfig.ARTICLE_CONTENT + '1'
+    }).then(res => that.setState({
+      article: res.data.payload
+    }))
   }
 
   handleCommentChange(value) {
@@ -78,26 +72,27 @@ export default class NewsDetail extends Component {
   }
 
   render() {
-    const commentsContent = this.state.comments.map(comment => {
+    const {comments, article} = this.state
+    const commentsContent = comments.map(comment => {
       return <CommentCell comment={comment}/>
     })
     return(
       <View className="parent">
         <View className="newsDetail">
           <View className="newsDetailTitle">
-            <Text>{this.state.article.title}</Text>
+            <Text>{article.title}</Text>
           </View>
           <View className="newsDetailAuthor">
             <View>
-              <AtAvatar image={this.state.article.userInfo.avatarUrl} circle size='small'/>
+              <AtAvatar image={article.author.avatar} circle size='small'/>
             </View>
             <View className="newsDetailAuthorCenter">
-              <View className="newsDetailUsername"><Text>{this.state.article.userInfo.nickname}</Text></View>
-              <View className="newsDetailGov"><Text>{this.state.article.createdTime}</Text><Text> . {this.state.article.userInfo.gov}</Text></View>
+              <View className="newsDetailUsername"><Text>{article.author.name}</Text></View>
+              <View className="newsDetailGov"><Text>{getLocalTime(article.publishTime)}</Text><Text> . {article.author.authName}</Text></View>
             </View>
           </View>
           <View className='newsDetailContent'>
-            <RichText nodes={this.state.article.content}/>
+            <RichText nodes={article.content}/>
           </View>
 
           <View>
