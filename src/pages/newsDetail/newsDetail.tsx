@@ -21,6 +21,7 @@ export default class NewsDetail extends Component {
     addCommentContent: '',
     openAddComment: false,
     addCommentFocus: false,
+    recommendAD: {},
     comments: [{
       userInfo: {
         username: '李小强',
@@ -42,6 +43,7 @@ export default class NewsDetail extends Component {
   componentDidShow(): void {
     const {articleId, title} = this.$router.params
     this.getArticleContent(articleId)
+    this.getRecommendAD()
   }
 
   getArticleContent(articleId) {
@@ -51,6 +53,21 @@ export default class NewsDetail extends Component {
     }).then(res => that.setState({
       article: res.data.payload
     }))
+  }
+
+  getRecommendAD() {
+    let that = this
+    Taro.request({
+      url: URLConfig.RECOMMEND_AD
+    }).then(res => that.setState({
+      recommendAD: res.data.payload
+    }))
+  }
+
+  handleClickRecommendAD() {
+    Taro.navigateTo({
+      url: '/pages/newsDetail/newsDetail'
+    })
   }
 
   handleCommentChange(value) {
@@ -72,7 +89,7 @@ export default class NewsDetail extends Component {
   }
 
   render() {
-    const {comments, article} = this.state
+    const {comments, article, recommendAD} = this.state
     const commentsContent = comments.map(comment => {
       return <CommentCell comment={comment}/>
     })
@@ -96,7 +113,7 @@ export default class NewsDetail extends Component {
           </View>
 
           <View>
-            <ADCard/>
+            <ADCard adInfo={recommendAD} onClick={this.handleClickRecommendAD}/>
           </View>
 
           <View className='newsDetailComment'>

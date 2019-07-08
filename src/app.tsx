@@ -21,11 +21,11 @@ class App extends Component {
    */
   config: Config = {
     pages: [
+      'pages/official/official',
       'pages/news/news',
       'pages/my/my',
       'pages/newsDetail/newsDetail',
-      'pages/community/community',
-      'pages/official/official'
+      'pages/community/community'
     ],
     window: {
       backgroundTextStyle: 'light',

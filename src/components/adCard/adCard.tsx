@@ -11,26 +11,21 @@ export default class ADCard extends Component {
       imageUrl: 'https://misc.aotu.io/jimczj/2018-08-27taro-ui.jpg',
       providerName: '天全论坛'
     },
-    onClick: this.handleADClick
-  }
-
-  handleADClick() {
-    Taro.navigateTo({
-      url: '/pages/newsDetail/newsDetail'
-    })
+    onClick: () =>{}
   }
 
   render() {
-    return (<View className="adCard" onClick={this.props.onClick}>
+    let {adInfo, onClick} = this.props
+    return (<View className="adCard" onClick={onClick}>
       <View className="adCardTitle">
-        <Text>{this.props.adInfo.title}</Text>
+        <Text>{adInfo.title}</Text>
       </View>
       <View>
-        <Image src={this.props.adInfo.imageUrl} className="adCardImage"/>
+        <Image src={adInfo.imageUrl} className="adCardImage"/>
       </View>
       <View className="adCardComment">
         <Text className="adCardCommentTag">广告</Text>
-        <Text className="adCardProvider">{this.props.adInfo.providerName}</Text>
+        <Text className="adCardProvider">{adInfo.providerName}</Text>
       </View>
     </View>)
   }

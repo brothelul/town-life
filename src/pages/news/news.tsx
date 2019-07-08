@@ -1,15 +1,15 @@
 import Taro, {Component, Config} from '@tarojs/taro'
-import {View, Text, RichText} from '@tarojs/components'
+import {View, Text, RichText, ScrollView} from '@tarojs/components'
 import {AtTabs, AtTabsPane, AtList, AtListItem, AtLoadMore} from 'taro-ui'
 import NewsItem from '../../components/newsItem/newsItem'
 import Loading from '../../components/loading/loading'
 import {URLConfig} from '../../config/config'
 import './news.scss'
 
-export default class News extends Taro.Component {
+export default class News extends Component {
 
   config: Config = {
-    onReachBottomDistance: 50,
+    onReachBottomDistance: 60,
     navigationBarTitleText: '天全知事'
   }
 
@@ -51,13 +51,16 @@ export default class News extends Taro.Component {
         number: number,
         size: 8
       }
-    }).then(res => that.setState({
-      articles: that.state.articles.concat(res.data.payload.content),
-      number: ++this.state.number
-    }))
+    }).then(res => {
+      console.log("加载")
+      that.setState({
+        articles: that.state.articles.concat(res.data.payload.content),
+        number: ++this.state.number
+      })
+    })
   }
 
-  onReachBottom(){
+  onReachBottom() {
     if (this.state.noMore) {
       return
     }
@@ -107,14 +110,16 @@ export default class News extends Taro.Component {
         scroll
         tabList= {categories}
         onClick={this.handleClick.bind(this)}>
-        {
-          categories.map((category, index) => <AtTabsPane current={current} index={index}>
-            {content}
-            <Loading noMore={this.state.noMore} noMoreText={this.state.noMoreText}
-                     loading={this.state.loading} loadingText={this.state.loadingText}
-                     moreText={this.state.moreText}/>
-          </AtTabsPane>)
-        }
+        <ScrollView>
+          {
+            categories.map((category, index) => <AtTabsPane current={current} index={index}>
+              {content}
+              <Loading noMore={this.state.noMore} noMoreText={this.state.noMoreText}
+                       loading={this.state.loading} loadingText={this.state.loadingText}
+                       moreText={this.state.moreText}/>
+            </AtTabsPane>)
+          }
+        </ScrollView>
       </AtTabs>
     )
   }
